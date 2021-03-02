@@ -25,9 +25,8 @@ ourtrees = ourtrees.replace(r'^\s*$', numpy.NaN, regex=True)
 invasives = pandas.read_csv('data/eddmaps.org_midwest_species.csv', low_memory=False)
 
 # extract the scientific name from the tree survey into its own column
-#TODO why is this adding square brackets?
 def SPECIESNAME(row):
-    return re.findall(pattern='\(([^)]+)\)', string=row['Species'])
+    return re.findall(pattern='\(([^)]+)\)', string=row['Species'])[0]
 ourtrees['Scientific'] = ourtrees.apply(lambda row: SPECIESNAME (row),axis=1)
 
 # print out information from the survey
