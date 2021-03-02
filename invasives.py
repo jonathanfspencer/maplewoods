@@ -33,3 +33,13 @@ ourtrees['Scientific'] = ourtrees.apply(lambda row: SPECIESNAME (row),axis=1)
 print('Scientific Names Counts:')
 scientificcounts = ourtrees['Scientific'].value_counts(sort=True)
 print(scientificcounts)
+
+# print out the list of invasive trees
+print('Invasive Trees:')
+print(invasives['Scientific Name'])
+
+# TODO make a new column in ourtrees to indicate whether invasive
+ourtrees['Invasive'] = ourtrees.Scientific.isin(invasives['Scientific Name']).astype(int)
+print('Maplewood Invasives Count:')
+mwinvasivescount = ourtrees['Invasive'].value_counts(sort=False)
+print(mwinvasivescount)
