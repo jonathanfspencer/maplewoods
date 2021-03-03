@@ -104,5 +104,25 @@ analyzing some tree data for maplewood, mo
 |	Magnolia, Chinese; Saucer (Magnolia x soulangi	|	1	|
 |	Oak, Cherrybark (Quercus pagoda)              	|	1	|
 
+## Invasive Species Present in Maplewood
+|Invasive Species|Count|
+|----------------|-----|
+|Pear, Callery (Pyrus calleryana)|290|
+|Maple, Amur (Acer ginnala)|78|
+|Elm, Siberian (Ulmus pumila)|26|
+|Maple, Norway (Acer platanoides)|22|
+|Corktree, Amur (Phellodendron amurense)|15|
+|Linden, Littleleaf (Tilia cordata)|11|
+|Tree of Heaven (Ailanthus altissima)|5|
+|Apple, Paradise (Malus pumila)|3|
+|Poplar, White (Populus alba)|2|
+|Spruce, Norway (Picea abies)|2|
+|Locust, Black (Robinia pseudoacacia)|1|
+|Mulberry, White (Morus alba)|1|
+|Paulownia, Royal (Paulownia tomentosa)|1|
+|Pine, Scotch (Pinus sylvestris)|1|
+|TOTAL|458|
+
 ## Source
 https://maplewoodmo.treekeepersoftware.com/
+https://www.eddmaps.org/midwest/species/

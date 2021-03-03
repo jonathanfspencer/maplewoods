@@ -38,8 +38,15 @@ print(scientificcounts)
 print('Invasive Trees:')
 print(invasives['Scientific Name'])
 
-# TODO make a new column in ourtrees to indicate whether invasive
+# make a new column in ourtrees to indicate whether invasive
 ourtrees['Invasive'] = ourtrees.Scientific.isin(invasives['Scientific Name']).astype(int)
 print('Maplewood Invasives Count:')
 mwinvasivescount = ourtrees['Invasive'].value_counts(sort=False)
 print(mwinvasivescount)
+
+# print list of invasive species present in maplewood
+ourinvasivetrees = ourtrees[ourtrees['Invasive']>0].groupby('Species')['Site ID'].count()
+ourinvasivetrees = ourinvasivetrees.sort_values(ascending=False)
+print('Invasive Trees Present in Maplewood')
+print(ourinvasivetrees)
+
