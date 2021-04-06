@@ -20,6 +20,7 @@ pandas.set_option('display.float_format', lambda x:'%f'%x)
 # load the 2020 Maplewood Tree Survey
 ourtrees = pandas.read_csv('data/sites.csv', low_memory=False)
 ourtrees = ourtrees.replace(r'^\s*$', numpy.NaN, regex=True)
+ourtrees['Address'] = ourtrees['Address'].astype(str)
 
 # load the list of midwest invasive trees from eddmaps.org
 invasives = pandas.read_csv('data/eddmaps.org_midwest_species.csv', low_memory=False)
@@ -49,4 +50,11 @@ ourinvasivetrees = ourtrees[ourtrees['Invasive']>0].groupby('Species')['Site ID'
 ourinvasivetrees = ourinvasivetrees.sort_values(ascending=False)
 print('Invasive Trees Present in Maplewood')
 print(ourinvasivetrees)
+
+# print type, dbh, and address of each invasive tree
+invasivespots = ourtrees[ourtrees['Invasive']>0]
+invasivespots['Street Address'] = invasivespots[['Address','Street']].agg(' '.join, axis=1)
+invasivespots = invasivespots.sort_values(by=['Species', 'Street Address'], ascending=True)
+invasiveoutput = invasivespots[['Species', 'DBH', 'Multi-Stem', 'Street Address']]
+invasiveoutput.to_csv('data/invasive_addr.csv')
 
